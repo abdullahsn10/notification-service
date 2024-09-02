@@ -20,3 +20,8 @@ JWT_TOKEN_SETTINGS = {
     "ALGORITHM": os.getenv("ALGORITHM"),
     "ACCESS_TOKEN_EXPIRE_MINUTES": os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES"),
 }
+
+
+# RabbitMQ and Order-Notification settings
+RABBITMQ_HOST = os.getenv("RABBITMQ_HOST")
+ORDER_NOTIFICATION_QUEUE = os.getenv("ORDER_NOTIFICATION_QUEUE")
