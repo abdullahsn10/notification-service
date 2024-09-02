@@ -6,6 +6,9 @@ import threading
 
 
 def start_consumer():
+    """
+    Start the RabbitMQ consumer in a separate thread
+    """
     consumer = RabbitMQConsumer(host=RABBITMQ_HOST, queue_name=ORDER_NOTIFICATION_QUEUE)
     consumer_thread = threading.Thread(target=consumer.start_consuming)
     consumer_thread.start()

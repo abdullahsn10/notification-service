@@ -7,8 +7,8 @@ from src.settings.database import db
 class RabbitMQConsumer:
     def __init__(
         self,
-        host="localhost",
-        queue_name="order_notification",
+        host: str = "localhost",
+        queue_name: str = "order_notification",
     ):
         self.host = host
         self.queue_name = queue_name
