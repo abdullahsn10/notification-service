@@ -9,5 +9,6 @@ class Notification(Base):
     order_id = Column(Integer, nullable=False, index=True)
     issuer_id = Column(Integer, nullable=False, index=True)
     customer_id = Column(Integer, nullable=False, index=True)
+    coffee_shop_id = Column(Integer, nullable=False, index=True)
     message = Column(String, nullable=False)
     created_at = Column(DateTime, nullable=False)
