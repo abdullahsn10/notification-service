@@ -36,6 +36,7 @@ class RabbitMQConsumer:
                 issuer_id=message["issuer_id"],
                 customer_id=message["customer_id"],
                 message=message["message"],
+                coffee_shop_id=message["coffee_shop_id"],
                 created_at=message["created_at"],
             )
             self.db.add(notification)
