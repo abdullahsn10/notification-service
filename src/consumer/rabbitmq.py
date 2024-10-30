@@ -8,9 +8,12 @@ class RabbitMQConsumer:
     def __init__(
         self,
         host: str = "localhost",
+        username: str = "guest",
+        password: str = "guest",
         queue_name: str = "order_notification",
     ):
         self.host = host
+        self.credentials = pika.PlainCredentials(username, password)
         self.queue_name = queue_name
         self.connection = None
         self.channel = None
@@ -19,7 +22,7 @@ class RabbitMQConsumer:
     def _connect(self):
         if self.connection is None or self.connection.is_closed:
             self.connection = pika.BlockingConnection(
-                pika.ConnectionParameters(self.host)
+                pika.ConnectionParameters(host=self.host, credentials=self.credentials)
             )
             self.channel = self.connection.channel()
             self.channel.queue_declare(queue=self.queue_name, durable=True)
